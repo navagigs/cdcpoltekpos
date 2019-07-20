@@ -79,13 +79,13 @@ class Pengaturan extends CI_Controller {
 								
 				$simpan						= $this->input->post('simpan');
 				if ($simpan && $jml_pengguna < 1 ){								
-					$insert['admin_user']		= validasi_sql($data['admin_user']);
-					$insert['admin_pass']		= validasi_sql(do_hash(($data['admin_pass']), 'md5'));
-					$insert['admin_nama']		= validasi_sql($data['admin_nama']);
-					$insert['admin_alamat']		= validasi_sql($data['admin_alamat']);
-					$insert['admin_telepon']	= validasi_sql($data['admin_telepon']);
-					$insert['admin_level_kode']	= validasi_sql($data['admin_level_kode']);			
-					$insert['admin_status']		= validasi_sql('A');
+					$insert['admin_user']		= $data['admin_user'];
+					$insert['admin_pass']		= do_hash(($data['admin_pass']), 'md5');
+					$insert['admin_nama']		= $data['admin_nama'];
+					$insert['admin_alamat']		= $data['admin_alamat'];
+					$insert['admin_telepon']	= $data['admin_telepon'];
+					$insert['admin_level_kode']	= $data['admin_level_kode'];			
+					$insert['admin_status']		= 'A';
 					$this->ADM->insert_admin($insert);
 					$this->session->set_flashdata('success','Pengguna baru telah berhasil ditambahkan!,');
 					redirect("pengaturan/pengguna");
@@ -112,13 +112,13 @@ class Pengaturan extends CI_Controller {
 				$data['admin_level_kode']		= ($this->input->post('admin_level_kode'))?$this->input->post('admin_level_kode'):$admin->admin_level_kode;	
 				$simpan							= $this->input->post('simpan');
 				if ($simpan){
-					$where_edit['admin_user']	= validasi_sql($data['admin_user']);
+					$where_edit['admin_user']	= $data['admin_user'];
 					if ($data['admin_pass'] <> '') {						
-					$edit['admin_pass']			= validasi_sql(do_hash(($data['admin_pass']), 'md5')); }
-					$edit['admin_nama']			= validasi_sql($data['admin_nama']);
-					$edit['admin_alamat']		= validasi_sql($data['admin_alamat']);
-					$edit['admin_telepon']		= validasi_sql($data['admin_telepon']);					
-					$edit['admin_level_kode']	= validasi_sql($data['admin_level_kode']);
+					$edit['admin_pass']			= do_hash(($data['admin_pass']), 'md5'); }
+					$edit['admin_nama']			= $data['admin_nama'];
+					$edit['admin_alamat']		= $data['admin_alamat'];
+					$edit['admin_telepon']		= $data['admin_telepon'];					
+					$edit['admin_level_kode']	= $data['admin_level_kode'];
 					$this->ADM->update_admin($where_edit, $edit);
 					$this->session->set_flashdata('success','Pengguna telah berhasil diedit!,');
 					redirect("pengaturan/pengguna");

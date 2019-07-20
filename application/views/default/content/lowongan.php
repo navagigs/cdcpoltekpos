@@ -64,7 +64,7 @@
                     			?>
 								<div class="package-list-item clearfix">
 									<div class="image">
-										<img src="<?php echo base_url(); ?>assets/images/job/<?php echo $row->job_image; ?>" alt="<?php echo $row->job_name; ?>" />
+										<img src="<?php echo base_url(); ?>assets/images/job/<?php echo $row->job_images; ?>" alt="<?php echo $row->job_name; ?>" />
 										<div class="absolute-in-image">
 											
 										</div>
@@ -76,11 +76,7 @@
 											<div class="col-sm-12 col-md-9">
 												
 												<b>Kualifikasi</b><p class="line18"><?php echo $row->job_qualifications; ?></p>
-												
-												<ul class="list-info">
-													<li><span class="icon"><i class="fa fa-map-marker"></i></span> <span class="font600">Perusahaan: </span> <?php echo $row->company_name;?> - <?php echo $row->company_address;?></li>
-													
-												</ul>
+												<span class="font600"><?php echo $row->company_name;?> </span>  <br> <?php echo $row->company_address;?>
 												
 											</div>
 											<div class="col-sm-12 col-md-3 text-right text-left-sm">

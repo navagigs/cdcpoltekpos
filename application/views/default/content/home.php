@@ -125,7 +125,7 @@
                 <div class="package-grid-item"> 
                   <a href="<?php echo base_url(); ?>lowongan/detail/<?php echo $row->job_id; ?>">
                     <div class="image">
-                      <img src="<?php echo base_url(); ?>assets/images/job/<?php echo $row->job_image; ?>" alt="<?php echo $row->job_name; ?>" />
+                      <img src="<?php echo base_url(); ?>assets/images/job/<?php echo $row->job_images; ?>" alt="<?php echo $row->job_name; ?>" />
                       <div class="absolute-in-image">
                         <div class="duration"><span><?php echo dateIndo($row->job_date); ?></span></div>
                       </div>
@@ -160,7 +160,7 @@
       </section>
       
     
-      
+   <!--    
       <section class="bg-light">
       
         <div class="container">
@@ -215,7 +215,7 @@
           
         </div>
         
-      </section>
+      </section> -->
       
      
           

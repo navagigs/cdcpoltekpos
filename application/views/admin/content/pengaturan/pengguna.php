@@ -252,7 +252,7 @@
                                             <label for="admin_level_kode" class="control-label">Kelompok <span class="required">*</span></label>
                                         </td>
                                         <td>
-                                            <?php $this->ADM->combo_box("SELECT * FROM admin_level WHERE admin_level_status='A' AND admin_level_nama!='Public'", 'admin_level_kode', 'admin_level_kode', 'admin_level_nama', $admin_level_kode,'submit();');?>
+                                            <?php $this->ADM->combo_box("SELECT * FROM admin_level WHERE admin_level_status='A' AND admin_level_nama!='Public'", 'admin_level_kode', 'admin_level_kode', 'admin_level_nama', $admin_level_kode,'');?>
                                         </td>
                                     </tr>
                                 </tbody>

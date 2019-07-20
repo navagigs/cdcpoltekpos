@@ -40,13 +40,14 @@
 										<div class="package-grid-item"> 
 											<a href="<?php echo base_url(); ?>perusahaan/detail/<?php echo $row->company_id; ?>">
 												<div class="image">
-													<img src="<?php echo base_url(); ?>assets/images/company/<?php echo $row->company_image; ?>" alt="<?php echo $row->company_name; ?>" />
+													<img src="<?php echo base_url(); ?>assets/images/company/<?php echo $row->company_logo; ?>" alt="<?php echo $row->company_name; ?>" />
 													<div class="absolute-in-image">
 														<div class="duration"><span><?php echo $row->company_field; ?></span></div>
 													</div>
 												</div>
 												<div class="content clearfix">
-													<h6><?php echo $row->company_name;?></h6>
+													<h4><?php echo $row->company_name;?></h4>
+													<p><?php echo $row->company_address;?></p>
 												</div>
 											</a>
 										</div>
@@ -84,7 +85,7 @@
 				</div>
 				
 			</div>
-			
+			</div>
 
 <?php } elseif ($action == 'detail') { ?>
 <div class="content-wrapper">

@@ -27,10 +27,10 @@
 
 	<div class="middle-login">
 		<div class="block-flat">
-			<div class="header">							
+			<!-- <div class="header">							
                <h3 class="text-center"><img class="logo-img" src="<?php echo base_url();?>templates/admin/images/logo_login.png" alt="logo"/></h3>
 			</div>
-			<div>
+			<div> -->
                     <form style="margin-bottom: 0px !important;" class="form-horizontal" action="<?php echo site_url();?>internal/ceklogin" method="post" name="formLogin" id="form" parsley-validate novalidate>
 					<div class="content">
 						                   <!-- ========== Flashdata ========== -->
@@ -74,7 +74,7 @@
 			</div>
             
 		</div>
-		<div class="text-center out-links"><a href="#">CDC POLTEKPOS &copy; 2019 All Right Reserved</a></div>
+		<!-- <div class="text-center out-links"><a href="#">CDC POLTEKPOS &copy; 2019 All Right Reserved</a></div> -->
         
 	</div> 
 	

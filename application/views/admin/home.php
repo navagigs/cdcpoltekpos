@@ -75,7 +75,7 @@
                             </a>
                             <ul class="dropdown-menu">
                                 <li><a href="<?php echo site_url();?>" target="_blank">Lihat Website</a></li>
-                                <li><a href="<?php echo site_url();?>admin/edit_password">Edit Password</a></li>
+                                <!-- <li><a href="<?php echo site_url();?>admin/edit_password">Edit Password</a></li> -->
                                 <li class="divider"></li>
                                 <li><a href="<?php echo site_url();?>internal/keluar">Logout</a></li>
                             </ul>

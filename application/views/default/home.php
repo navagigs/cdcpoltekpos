@@ -298,11 +298,11 @@
  
 
  
-  <!-- start Back To Top -->
+  <!-- start Back To Top
   <div id="back-to-top">
      <a href="#"><i class="fa fa-angle-up"></i></a>
   </div>
-  <!-- end Back To Top -->
+ end Back To Top -->
 
 
 <?php if ($this->session->flashdata('success') || $this->session->flashdata('warning')) { ?>
