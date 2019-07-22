@@ -22,6 +22,10 @@ class Home extends CI_Controller {
 		$where_job['admin_nama']	= $this->session->userdata('admin_nama');				
 		$data['jml_data']			= $this->ADM->count_all_job('', $like_job);
 		$data['jml_halaman']		= ceil($data['jml_data']/$data['batas']);
+			$data['jml_data_job']			= $this->ADM->count_all_job('');
+			$data['jml_data_company']		= $this->ADM->count_all_company('');
+			$data['jml_data_apply']			= $this->ADM->count_all_apply('');
+			$data['jml_data_member']		= $this->ADM->count_all_member('');
 		$this->load->vars($data);
 		$this->load->view('default/home');
 		

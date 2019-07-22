@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 4.8.4
+-- version 4.7.4
 -- https://www.phpmyadmin.net/
 --
--- Host: localhost
--- Generation Time: Jul 20, 2019 at 03:46 PM
--- Server version: 10.1.37-MariaDB
--- PHP Version: 5.6.39
+-- Host: 127.0.0.1
+-- Generation Time: Jul 22, 2019 at 06:58 AM
+-- Server version: 10.1.29-MariaDB
+-- PHP Version: 7.2.0
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 SET AUTOCOMMIT = 0;
@@ -46,8 +46,9 @@ CREATE TABLE `admin` (
 
 INSERT INTO `admin` (`admin_user`, `admin_pass`, `admin_nama`, `admin_alamat`, `admin_telepon`, `admin_ip`, `admin_online`, `admin_level_kode`, `admin_status`) VALUES
 ('admin', '21232f297a57a5a743894a0e4a801fc3', 'Administrator', 'Bandung', '087820033395', '', 0, 1, 'A'),
-('disban01', '6b9246aad58dc3c379c2b664b8f5430d', 'Admin.Dis', 'Bandung', '-', '', 0, 2, 'A'),
-('nava', '533078acd91fffef2a525239de4a3dc9', 'Nava Gia', 'Bandung', '087820033395', '', 0, 2, 'A');
+('disban01', '6b9246aad58dc3c379c2b664b8f5430d', 'Admin.Dis', 'Bandung', '-', '', 0, 2, 'H'),
+('nava', '533078acd91fffef2a525239de4a3dc9', 'Nava Gia', 'Bandung', '087820033395', '', 0, 2, 'H'),
+('wadir', '0f48529ef59b423475ada2f4d4dd8535', 'Wakil DIrektur', '-', '-', '', 0, 2, 'A');
 
 -- --------------------------------------------------------
 
@@ -89,8 +90,8 @@ CREATE TABLE `apply` (
 --
 
 INSERT INTO `apply` (`apply_id`, `job_id`, `member_id`, `company_id`, `apply_status`, `apply_created`) VALUES
-(4, 1, 4, 3, 'DITERIMA', '2019-07-20 10:58:33'),
-(5, 2, 4, 3, 'BELUM DIPROSES', '2019-07-20 11:05:21');
+(4, 1, 4, 2, 'TIDAK DITERIMA', '2019-07-20 10:58:33'),
+(5, 2, 4, 4, 'DITERIMA', '2019-07-20 11:05:21');
 
 -- --------------------------------------------------------
 
@@ -116,9 +117,9 @@ CREATE TABLE `company` (
 --
 
 INSERT INTO `company` (`company_id`, `company_logo`, `company_name`, `company_field`, `company_description`, `company_year`, `company_address`, `company_contact`, `company_web`, `company_created`) VALUES
-(2, '1563466143-1.PNG', 'CROP - IT Solution', 'BIDANG', '<p>\r\n	3</p>\r\n', '4', '4', '4', '4', '2019-07-18 23:09:03'),
-(3, '1563466157-1.PNG', 'BRAIN', 'IT of Things Solutions', 'Menciptakan layanan pengembangan IT yang kreatif untuk kepentingan pelanggan, internal perusahaan, UMKM dan usaha lainnya. Yang mengembangkan layanan IT yang berlandaskan pada pemanfaatan teknologi informasi yang bernilai tinggi untuk menjadi perusahaan pengembangan IT terbsesar dan terbaik di Indonesia</p>\r\n', '2016', 'Jl. Sari Asih 4 RT.07/RW.10 Sarijadi, \r\nBandung - Jawa Barat', '087820033395', 'www.crop.web.id', '2019-07-18 23:09:17'),
-(4, '1563466157-1.PNG', 'BRAIN', 'IT of Things Solutions', 'Menciptakan layanan pengembangan IT yang kreatif untuk kepentingan pelanggan, internal perusahaan, UMKM dan usaha lainnya. Yang mengembangkan layanan IT yang berlandaskan pada pemanfaatan teknologi informasi yang bernilai tinggi untuk menjadi perusahaan pengembangan IT terbsesar dan terbaik di Indonesia</p>\r\n', '2016', 'Jl. Sari Asih 4 RT.07/RW.10 Sarijadi, \r\nBandung - Jawa Barat', '087820033395', 'www.crop.web.id', '2019-07-18 23:09:17');
+(2, '1563766990-bdv2.jpg', 'Bandung Digital Valley', 'Co Working Space', '<div>\r\n	Bandung Digital Valley is an incubator and co-working space for digital creative enthusiasts of various backgrounds including students, community members, freelancers, IT practitioners and startup founders. Bandung Digital Valley membership is offered to those who met our criteria. Applicant should submit the application form with complete details. BDV management have the right to reject new member applications for any reasons including incomplete application form and mismatch applicant criteria.&nbsp;</div>\r\n<div>\r\n	&nbsp;</div>\r\n', '2010', 'Menara Bandung Digital Valley, Jl. Gegerkalong Hilir No.47, Sukarasa, Kec. Sukasari, Kota Bandung, Jawa Barat 40152', '(022) 4572380', 'https://bandungdigitalvalley.com/', '2019-07-18 23:09:03'),
+(4, '1563766626-crop copy.png', 'CROP - IT Solution', 'IT of Things Solutions', '<p>\r\n	Menciptakan layanan pengembangan IT yang kreatif untuk kepentingan pelanggan, internal perusahaan, UMKM dan usaha lainnya. Yang mengembangkan layanan IT yang berlandaskan pada pemanfaatan teknologi informasi yang bernilai tinggi untuk menjadi perusahaan pengembangan IT terbsesar dan terbaik di Indonesia</p>\r\n<p>\r\n	&nbsp;</p>\r\n', '2016', 'Jl. Sari Asih 4 RT.07/RW.10 Sarijadi, Bandung - Jawa Barat', '087820033395', 'www.crop.web.id', '2019-07-18 23:09:17'),
+(5, '1563767162-dycode.jpg', 'DyCode', 'Professional Training', '<p>\r\n	iOS Professional Training</p>\r\n<p>\r\n	Learn how to create your awesome iOS app</p>\r\n<p>\r\n	using Apple&rsquo;s latest programming language &ndash; Swift</p>\r\n<p>\r\n	or widely-known one &ndash; Objective-C</p>\r\n', '2009', 'Jl. Sarikaso No.6A, Sarijadi, Kec. Sukasari, Kota Bandung, Jawa Barat 40151', '(022) 82004356', 'https://edu.dycode.co.id/', '2019-07-22 10:46:02');
 
 -- --------------------------------------------------------
 
@@ -142,10 +143,7 @@ INSERT INTO `cv` (`cv_id`, `cv_file`, `member_id`, `cv_created`) VALUES
 (2, '', 1, '2019-07-20 03:02:17'),
 (3, '', 1, '2019-07-20 03:02:49'),
 (4, '', 1, '2019-07-20 08:07:08'),
-(7, 'Software Quality Assurance From Theory to Implementation.pdf', 4, '2019-07-20 08:27:12'),
-(8, 'Work Plan Periode 15 -19 Juli 2019 NAVA.xlsx', 4, '2019-07-20 08:28:18'),
-(9, 'Work Plan Periode 15 -19 Juli 2019 NAVA.xlsx', 4, '2019-07-20 08:33:58'),
-(11, 'Work Plan Periode 15 -19 Juli 2019 NAVA.xlsx', 4, '2019-07-20 08:36:15');
+(12, 'AUDIT KEAMANA SI.pdf', 4, '2019-07-22 08:56:22');
 
 -- --------------------------------------------------------
 
@@ -194,8 +192,9 @@ CREATE TABLE `job` (
 --
 
 INSERT INTO `job` (`job_id`, `job_name`, `job_responsible`, `job_qualifications`, `job_date`, `job_images`, `company_id`, `job_created`) VALUES
-(1, 'Web Developers', '-Membuat dan Memperbaiki Aplikasi\n-Siap Dikejar Deadline', '- Bisa Codeigniter- Bisa Ajax', '2019-07-20', '', '3', '2019-07-19 14:20:38'),
-(2, 'Android', '-Membuat dan Memperbaiki Aplikasi\r\n-Siap Dikejar Deadline', '- Bisa Codeigniter- Bisa Ajax', '2019-07-10', '', '3', '2019-07-19 14:20:38');
+(1, 'Web Developers', '<p>\r\n	-Membuat dan Memperbaiki Aplikasi</p>\r\n<p>\r\n	-Siap Dikejar Deadline</p>\r\n', '<p>\r\n	- Bisa Codeigniter</p>\r\n<p>\r\n	- Bisa Ajax</p>\r\n', '2019-07-20', '1563633823-web-developers.jpg', '2', '2019-07-19 14:20:38'),
+(2, 'Android', '<p>\r\n	-Membuat dan Memperbaiki Aplikasi -Siap Dikejar Deadline</p>\r\n', '<p>\r\n	- Bisa Codeigniter- Bisa Ajax</p>\r\n', '2019-08-31', '1563636767-android.jpg', '4', '2019-07-19 14:20:38'),
+(3, 'Desain Grafis', '-Membuat dan Memperbaiki Aplikasi\r\n-Siap Dikejar Deadline', '- Bisa Codeigniter- Bisa Ajax', '2019-07-10', '1563636329-desain-grafis.jpg', '2', '2019-07-19 14:20:38');
 
 -- --------------------------------------------------------
 
@@ -211,7 +210,6 @@ CREATE TABLE `member` (
   `member_phone` varchar(255) NOT NULL,
   `member_address` text NOT NULL,
   `member_images` varchar(255) NOT NULL,
-  `member_cv` varchar(255) NOT NULL,
   `member_created` datetime NOT NULL,
   `member_username` varchar(100) NOT NULL,
   `member_password` varchar(100) NOT NULL,
@@ -222,8 +220,8 @@ CREATE TABLE `member` (
 -- Dumping data for table `member`
 --
 
-INSERT INTO `member` (`member_id`, `department_id`, `member_name`, `member_email`, `member_phone`, `member_address`, `member_images`, `member_cv`, `member_created`, `member_username`, `member_password`, `member_status`) VALUES
-(4, 1, 'dede', 'dede@nava.com', '87820033395', '', '', '', '0000-00-00 00:00:00', 'dede', 'b4be1c568a6dc02dcaf2849852bdb13e', '');
+INSERT INTO `member` (`member_id`, `department_id`, `member_name`, `member_email`, `member_phone`, `member_address`, `member_images`, `member_created`, `member_username`, `member_password`, `member_status`) VALUES
+(4, 2, 'e', 'nava@gmail.com', '3', 'Bandung1', '1563770989-1.PNG', '2019-07-18 00:00:00', 'dede', 'b4be1c568a6dc02dcaf2849852bdb13e', '');
 
 -- --------------------------------------------------------
 
@@ -328,19 +326,19 @@ ALTER TABLE `admin_level`
 -- AUTO_INCREMENT for table `apply`
 --
 ALTER TABLE `apply`
-  MODIFY `apply_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
+  MODIFY `apply_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `company`
 --
 ALTER TABLE `company`
-  MODIFY `company_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `company_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=6;
 
 --
 -- AUTO_INCREMENT for table `cv`
 --
 ALTER TABLE `cv`
-  MODIFY `cv_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=12;
+  MODIFY `cv_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=13;
 
 --
 -- AUTO_INCREMENT for table `department`
@@ -352,7 +350,7 @@ ALTER TABLE `department`
 -- AUTO_INCREMENT for table `job`
 --
 ALTER TABLE `job`
-  MODIFY `job_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=3;
+  MODIFY `job_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=4;
 
 --
 -- AUTO_INCREMENT for table `member`

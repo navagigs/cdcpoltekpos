@@ -70,10 +70,10 @@
                                 <tr>
                                     <th width="30">#</th>
                                     <th width="18%">POSISI LOWONGAN</th>
-                                    <th width="18%">PERUSAHAAN</th>
+                                    <th width="15%">PERUSAHAAN</th>
                                     <th width="40%">DESKRIPSI</th>
                                     <th width="10%">TGL.DIBUAT</th>
-                                    <th width="10%">AKSI</th>
+                                    <th width="13%">AKSI</th>
                                </tr>
                             </thead>
                             <tbody>
@@ -233,6 +233,7 @@
                                         </td>
                                         <td>
                                             <textarea class="form-control" rows="5" cols="20" id="job_responsible" name="job_responsible"></textarea>
+                                            <?php echo $ckeditor;?>
                                         </td>
                                     </tr>
                                     <tr>
@@ -241,6 +242,7 @@
                                         </td>
                                         <td>
                                             <textarea class="form-control" rows="5" cols="20" id="job_qualifications" name="job_qualifications" ></textarea>
+                                            <?php echo $ckeditor2;?>
                                         </td>
                                     </tr>
                                     <tr>
@@ -320,6 +322,7 @@
                                         </td>
                                         <td>
                                             <textarea class="form-control" rows="5" cols="20" id="job_responsible" name="job_responsible"><?php echo $job_responsible;?></textarea>
+                                            <?php echo $ckeditor;?>
                                         </td>
                                     </tr>
                                     <tr>
@@ -328,6 +331,7 @@
                                         </td>
                                         <td>
                                             <textarea class="form-control" rows="5" cols="20" id="job_qualifications" name="job_qualifications" ><?php echo $job_qualifications;?></textarea>
+                                            <?php echo $ckeditor2;?>
                                         </td>
                                     </tr>
                                 <?php if ($job_images){?>

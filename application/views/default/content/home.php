@@ -61,8 +61,8 @@
               <div class="featured-count clearfix">
                 <div class="icon"><i class="pe-7s-map-marker"></i></div>
                 <div class="content">
-                  <h6>300+ Destinations</h6>
-                  <span>Tastes giving in passed direct me valley supply.</span>
+                  <h6><?php echo $jml_data_company;?>+ Perusahaan</h6>
+                  <span>Jumlah Perusahaan yang telah berkerja sama.</span>
                 </div>
               </div>
             </div>
@@ -71,8 +71,8 @@
               <div class="featured-count clearfix">
                 <div class="icon"> <i class="pe-7s-user"></i></div>
                 <div class="content">
-                  <h6>500+ Travel Guides</h6>
-                  <span>Prepared do an dissuade whatever steepest.</span>
+                  <h6><?php echo $jml_data_job;?>+ Lowongan</h6>
+                  <span>Jumlah Lowongan yang tersedia.</span>
                 </div>
               </div>
             </div>
@@ -81,8 +81,8 @@
               <div class="featured-count clearfix">
                 <div class="icon"> <i class="pe-7s-smile"></i></div>
                 <div class="content">
-                  <h6>20000+ Happy Customers</h6>
-                  <span>Devonshire invitation discovered indulgence.</span>
+                  <h6><?php echo $jml_data_member;?>+ Member</h6>
+                  <span>Jumlah Member yang terdaftar.</span>
                 </div>
               </div>
             </div>
@@ -125,7 +125,7 @@
                 <div class="package-grid-item"> 
                   <a href="<?php echo base_url(); ?>lowongan/detail/<?php echo $row->job_id; ?>">
                     <div class="image">
-                      <img src="<?php echo base_url(); ?>assets/images/job/<?php echo $row->job_images; ?>" alt="<?php echo $row->job_name; ?>" />
+                      <img src="<?php echo base_url(); ?>assets/images/job/<?php echo $row->job_images; ?>" alt="<?php echo $row->job_name; ?>" style="width: 500px; height: 220px;" />
                       <div class="absolute-in-image">
                         <div class="duration"><span><?php echo dateIndo($row->job_date); ?></span></div>
                       </div>

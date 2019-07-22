@@ -27,14 +27,14 @@
                             <!-- small box -->
                             <div class="small-box bg-aqua">
                                 <div class="inner">
-                                    <h3><?php echo $jml_data_berita;?></h3>
-                                    <p>Berita</p>
+                                    <h3><?php echo $jml_data_job;?></h3>
+                                    <p>Lowongan</p>
                                 </div>
                                 <div class="icon">
-                                    <i class="fa fa-newspaper-o "></i>
+                                    <i class="fa fa-list-alt"></i>
                                 </div>
-                                <a href="<?php echo site_url();?>site/berita" class="small-box-footer">
-                                    Lihat Berita <i class="fa fa-arrow-circle-right"></i>
+                                <a href="<?php echo site_url();?>adminkarir/job" class="small-box-footer">
+                                    Lihat Lowongan <i class="fa fa-arrow-circle-right"></i>
                                 </a>
                             </div>
                         </div><!-- ./col -->
@@ -42,14 +42,14 @@
                             <!-- small box -->
                             <div class="small-box bg-green">
                                 <div class="inner">
-                                    <h3><?php echo $jml_data_sarana;?></h3>
-                                    <p>Sarana</p>
+                                    <h3><?php echo $jml_data_company;?></h3>
+                                    <p>Perusahaan</p>
                                 </div>
                                 <div class="icon">
-                                    <i class="fa fa-location-arrow"></i>
+                                    <i class="fa fa-building"></i>
                                 </div>
-                                <a href="<?php echo site_url();?>site/sarana" class="small-box-footer">
-                                    Lihat Sarana <i class="fa fa-arrow-circle-right"></i>
+                                <a href="<?php echo site_url();?>adminkarir/company" class="small-box-footer">
+                                    Lihat Perusahaan <i class="fa fa-arrow-circle-right"></i>
                                 </a>
                             </div>
                         </div><!-- ./col -->
@@ -57,14 +57,14 @@
                             <!-- small box -->
                             <div class="small-box bg-yellow">
                                 <div class="inner">
-                                    <h3><?php echo $jml_data_agenda;?></h3>
-                                    <p> Agenda</p>
+                                    <h3><?php echo $jml_data_apply;?></h3>
+                                    <p> Pelamar</p>
                                 </div>
                                 <div class="icon">
                                     <i class="fa fa-pencil"></i>
                                 </div>
-                                <a href="<?php echo site_url();?>site/agenda" class="small-box-footer">
-                                    Lihat Agenda <i class="fa fa-arrow-circle-right"></i>
+                                <a href="<?php echo site_url();?>adminkarir/apply" class="small-box-footer">
+                                    Lihat Pelamar <i class="fa fa-arrow-circle-right"></i>
                                 </a>
                             </div>
                         </div><!-- ./col -->
@@ -72,14 +72,14 @@
                             <!-- small box -->
                             <div class="small-box bg-red">
                                 <div class="inner">
-                                    <h3><?php echo $jml_data_album;?></h3>
-                                    <p>Album</p>
+                                    <h3><?php echo $jml_data_member;?></h3>
+                                    <p>Member</p>
                                 </div>
                                 <div class="icon">
-                                    <i class="fa file-image-o/"></i>
+                                    <i class="fa fa-user"></i>
                                 </div>
-                                <a href="<?php echo site_url();?>site/album" class="small-box-footer">
-                                    Lihat Album <i class="fa fa-arrow-circle-right"></i>
+                                <a href="<?php echo site_url();?>adminkarir/member" class="small-box-footer">
+                                    Lihat Member <i class="fa fa-arrow-circle-right"></i>
                                 </a>
                             </div>
                         </div><!-- ./col -->

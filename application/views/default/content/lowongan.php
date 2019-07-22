@@ -71,13 +71,11 @@
 									</div>
 									
 									<div class="content">
-										<h5><?php echo $row->job_name; ?> <button class="btn"><i class="fa fa-heart-o"></i></button></h5>
+										<h5><?php echo $row->job_name; ?> [<?php echo $row->company_name;?>] <button class="btn"><i class="fa fa-heart-o"></i></button></h5>
 										<div class="row gap-10">
 											<div class="col-sm-12 col-md-9">
 												
 												<b>Kualifikasi</b><p class="line18"><?php echo $row->job_qualifications; ?></p>
-												<span class="font600"><?php echo $row->company_name;?> </span>  <br> <?php echo $row->company_address;?>
-												
 											</div>
 											<div class="col-sm-12 col-md-3 text-right text-left-sm">
 												

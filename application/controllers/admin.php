@@ -19,6 +19,10 @@ class Admin extends CI_Controller {
             $data['breadcrumb']             = 'Dashboard';
 			$data['dashboard']				= 'admin/dashboard/statistik';
 			$data['content']				= 'admin/dashboard/statistik';
+			$data['jml_data_job']			= $this->ADM->count_all_job('');
+			$data['jml_data_company']		= $this->ADM->count_all_company('');
+			$data['jml_data_apply']			= $this->ADM->count_all_apply('');
+			$data['jml_data_member']		= $this->ADM->count_all_member('');
 			$data['menu_terpilih']			= '1';
 			$data['submenu_terpilih']		= '1';
 			$this->load->vars($data);

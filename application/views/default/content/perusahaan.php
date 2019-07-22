@@ -40,14 +40,14 @@
 										<div class="package-grid-item"> 
 											<a href="<?php echo base_url(); ?>perusahaan/detail/<?php echo $row->company_id; ?>">
 												<div class="image">
-													<img src="<?php echo base_url(); ?>assets/images/company/<?php echo $row->company_logo; ?>" alt="<?php echo $row->company_name; ?>" />
+													<img src="<?php echo base_url(); ?>assets/images/company/<?php echo $row->company_logo; ?>" alt="<?php echo $row->company_name; ?>"style="width: 500px; height: 120px;" />
 													<div class="absolute-in-image">
 														<div class="duration"><span><?php echo $row->company_field; ?></span></div>
 													</div>
 												</div>
 												<div class="content clearfix">
 													<h4><?php echo $row->company_name;?></h4>
-													<p><?php echo $row->company_address;?></p>
+													<!-- <p><?php echo $row->company_address;?></p> -->
 												</div>
 											</a>
 										</div>
@@ -209,8 +209,8 @@
 										?>
 
 										<form action="<?php echo base_url()?>account/applyjob" method="POST">
-											<input type="hidden" name="job_id" value="<?php echo $job->job_id;?>">
-											<input type="hidden" name="company_id" value="<?php echo $job->company_id;?>">
+											<input type="hidden" name="job_id" value="<?php echo $company->job_id;?>">
+											<input type="hidden" name="company_id" value="<?php echo $company->company_id;?>">
 											<input type="submit" name="apply" class="btn btn-primary" value="apply Job">
 										</form>
 

@@ -59,9 +59,9 @@
                           <span class="caret"></span>
                         </a>
                         <ul class="dropdown-menu" aria-labelledby="language-dropdown">
+                          <li><a href="<?php echo base_url(); ?>account/profile"><i class="ion-social-yen"></i> Profile</a></li>
                           <li><a href="<?php echo base_url(); ?>account/cv"><i class="ion-social-usd"></i> Curriculum Vitae</a></li>
                           <li><a href="<?php echo base_url(); ?>account/apply"><i class="ion-social-euro"></i> Pengumuman</a></li>
-                          <!-- <li><a href="#"><i class="ion-social-yen"></i> Yen</a></li> -->
                         </ul>
                       </li>
                       <li class="user-action">
@@ -98,7 +98,6 @@
                     <li><a href="<?php echo base_url();?>home">Home</a></li>
                     <li><a href="<?php echo base_url();?>lowongan">Lowongan</a></li>
                     <li><a href="<?php echo base_url();?>perusahaan">Perusahaan</a></li>
-                    <li><a href="contact.html">Kontak</a></li>
                   </ul>
                 </div><!--/.nav-collapse -->
                 
@@ -200,7 +199,7 @@
               
               <div class="form-group"> 
                 Nama
-                <input id="member_name" name="member_name" class="form-control" type="text" placeholder="Nama" required> 
+                <input id="member_name" name="member_name" class="form-control" type="text" placeholder="Nama"  required> 
               </div>
               
               <div class="form-group"> 

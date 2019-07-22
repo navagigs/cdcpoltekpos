@@ -175,4 +175,52 @@ class Account extends CI_Controller {
 		}
 	}
 
+	public function profile($filter1='', $filter2='', $filter3='')
+	{
+		if($this->session->userdata('logged_in2') == TRUE){
+			@date_default_timezone_set('Asia/Jakarta');
+			$data['content']		= '/default/content/akun';
+			$data['action']					= (empty($filter1))?'view':$filter1;
+				$where_member['member_id'] = $this->session->userdata('member_id');		
+				$data['member']			= $this->ADM->get_member('*', $where_member);
+			if ($data['action']	== 'edit') {
+				$data['member_id']				= $this->session->userdata('member_id');	
+				$data['member_name']			= ($this->input->post('member_name'))?$this->input->post('member_name'):$member->member_name;
+				$data['member_address']			= ($this->input->post('member_address'))?$this->input->post('member_address'):$member->member_address;
+				$data['member_email']			= ($this->input->post('member_email'))?$this->input->post('member_email'):$member->member_email;
+				$data['member_phone']			= ($this->input->post('member_phone'))?$this->input->post('member_phone'):$member->member_phone;
+				$data['member_images']			= ($this->input->post('member_images'))?$this->input->post('member_images'):$member->member_images;
+				$data['department_id']			= ($this->input->post('department_id'))?$this->input->post('department_id'):$member->department_id;
+				$simpan							= $this->input->post('simpan');
+				
+				if($simpan) {
+					$where_edit['member_id']	= $data['member_id'];
+					$edit['member_name']	= $data['member_name'];
+					$edit['member_address']	= $data['member_address'];
+					$edit['member_email']	= $data['member_email'];
+					$edit['member_phone']	= $data['member_phone'];
+					$edit['department_id']	= $data['department_id'];
+					$gambar = upload_image("member_images", "./assets/images/member/", "1920x929", seo($data['member_nama']));
+					$data['member_images']		= $gambar;
+					if ($data['member_images']) {
+						$row = $this->ADM->get_member('*', $where_edit);
+						@unlink('./assets/images/member/'.$row->member_images);
+						@unlink('./assets/images/member/kecil_'.$row->member_images);
+						$edit['member_images']	= $data['member_images']; 
+					}
+					$this->ADM->update_member($where_edit, $edit);
+					$this->session->set_flashdata('success','Profile telah berhasil diedit!,');
+					redirect("account/profile");
+				}
+			}
+
+		$this->load->vars($data);
+		$this->load->view('default/home');
+
+		} else {
+			redirect("home");
+		}
+	}
+
+
 }

@@ -32,7 +32,7 @@ class Perusahaan extends CI_Controller {
 		$data['action']			= 'detail';
 
 		$data['company_id']			=  (empty($company_id))?'':$company_id;
-    	$where_company['company_id']    = $company_id;
+    	$where_company['a.company_id']    = $company_id;
     	$data['company']          	= $this->ADM->get_company('',$where_company);
 				$data['halaman']			= (empty($filter2))?1:$filter2;
 				$data['batas']				= 10;

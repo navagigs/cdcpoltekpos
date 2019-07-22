@@ -6,181 +6,7 @@ class M_admin extends CI_Model  {
     }
 	
 	
-	//KONFIGURASI TABEL SERANA KATEGORI
-	public function insert_sarana_kategori($data){
-        $this->db->insert("sarana_kategori",$data);
-    }
-    
-    public function update_sarana_kategori($where,$data){
-        $this->db->update("sarana_kategori",$data,$where);
-    }
 
-    public function delete_sarana_kategori($where){
-        $this->db->delete("sarana_kategori", $where);
-    }
-
-	public function get_sarana_kategori($select, $where){
-        $data = "";
-		$this->db->select($select);
-        $this->db->from("sarana_kategori");
-		$this->db->where($where);
-		$this->db->limit(1);
-		$Q = $this->db->get();
-		if ($Q->num_rows() > 0){
-			$data = $Q->row();
-		}
-		$Q->free_result();
-		return $data;
-	}
-
-    public function grid_all_sarana_kategori($select, $sidx, $sord, $limit, $start, $where="", $like=""){
-        $data = "";
-        $this->db->select($select);
-        $this->db->from("sarana_kategori");
-		if ($where){$this->db->where($where);}
-		if ($like){
-			foreach($like as $key => $value){ 
-			$this->db->like($key, $value); 
-			}
-		}
-        $this->db->order_by($sidx,$sord);
-        $this->db->limit($limit,$start);
-        $Q = $this->db->get();
-        if ($Q->num_rows() > 0){
-            $data=$Q->result();
-        }
-        $Q->free_result();
-        return $data;
-    }
-
-    public function count_all_sarana_kategori($where="", $like=""){
-        $this->db->select("*");
-        $this->db->from("sarana_kategori");
-		if ($where){$this->db->where($where);}
-		if ($like){
-			foreach($like as $key => $value){ 
-			$this->db->like($key, $value); 
-			}
-		}
-        $Q=$this->db->get();
-        $data = $Q->num_rows();
-        return $data;
-    }
-	
-	 //KONFIGURASI TABEL SARANA
-	public function insert_sarana($data){
-        $this->db->insert("sarana",$data);
-    }
-    
-    public function update_sarana($where,$data){
-        $this->db->update("sarana",$data,$where);
-    }
-	
-    public function delete_sarana($where){
-        $this->db->delete("sarana", $where);
-    }
-
-	public function get_sarana($select, $where){
-        $data = "";
-		$this->db->select($select);
-        $this->db->from("sarana_kategori sk");
-		$this->db->join('sarana a', 'sk.sarana_kat_id=a.sarana_kat_id', 'left');
-		$this->db->where($where);
-		$this->db->limit(1);
-		$Q = $this->db->get();
-		if ($Q->num_rows() > 0){
-			$data = $Q->row();
-		}
-		$Q->free_result();
-		return $data;
-	}
-	 public function grid_all_sarana1($select, $sidx,$sord,$limit,$start,$where="", $like=""){
-			$data = "";
-			$this->db->select($select);
-        	$this->db->from("sarana_kategori sk");
-			$this->db->join('sarana a', 'sk.sarana_kat_id=a.sarana_kat_id', 'left');
-			if ($where){$this->db->where($where);}
-			if ($like){
-				foreach($like as $key => $value){ 
-				$this->db->like($key, $value); 
-				}
-			}
-			$names = array('nava', 'admin');
-			$this->db->where_not_in('admin_nama', $names);
-			$this->db->order_by($sidx,$sord);
-			$this->db->limit($limit,$start);
-			$Q = $this->db->get();
-			if ($Q->num_rows() > 0){
-				$data=$Q->result();
-			}
-			$Q->free_result();
-			return $data;
-		}
-		
-    public function grid_all_sarana($select, $sidx,$sord,$limit,$start,$where="", $like=""){
-        $data = "";
-        $this->db->select($select);
-        $this->db->from("sarana_kategori sk");
-		$this->db->join('sarana a', 'sk.sarana_kat_id=a.sarana_kat_id', 'left');
-		if ($where){$this->db->where($where);}
-		if ($like){
-			foreach($like as $key => $value){ 
-			$this->db->like($key, $value); 
-			}
-		}
-        $this->db->order_by($sidx,$sord);
-        $this->db->limit($limit,$start);
-        $Q = $this->db->get();
-        if ($Q->num_rows() > 0){
-            $data=$Q->result();
-        }
-        $Q->free_result();
-        return $data;
-    }
-
-    public function count_all_sarana($where="", $like=""){
-        $this->db->select("*");
-        $this->db->from("sarana_kategori sk");
-		$this->db->join('sarana a', 'sk.sarana_kat_id=a.sarana_kat_id', 'left');
-		if ($where){$this->db->where($where);}
-		if ($like){
-			foreach($like as $key => $value){ 
-			$this->db->like($key, $value); 
-			}
-		}
-        $Q=$this->db->get();
-        $data = $Q->num_rows();
-        return $data;
-    }
-        public function grid_all_sarana2($select, $sidx,$sord,$limit,$start,$where="", $like=""){
-        $data = "1";
-        $this->db->select($select);
-        $this->db->from("sarana");
-		if ($where){$this->db->where($where);}
-        $this->db->order_by($sidx,"ASC");
-        $this->db->limit($limit,$start);
-        $Q = $this->db->get();
-        if ($Q->num_rows() > 0){
-            $data=$Q->result();
-        }
-        $Q->free_result();
-        return $data;
-    }
-
-    public function count_all_sarana2($where="", $like=""){
-        $this->db->select("*");
-        $this->db->from("sarana");
-		if ($where){$this->db->where($where);}
-		if ($like){
-			foreach($like as $key => $value){ 
-			$this->db->like($key, $value); 
-			}
-		}
-        $Q=$this->db->get();
-        $data = $Q->num_rows();
-        return $data;
-    }	
-	
   //KONFIGURASI TABEL PERUSAHAAN
 	public function insert_company($data){
         $this->db->insert("company",$data);
@@ -197,7 +23,8 @@ class M_admin extends CI_Model  {
 	public function get_company($select, $where){
         $data = "";
 		$this->db->select($select);
-        $this->db->from("company");
+        $this->db->from("company a");
+        $this->db->join('job b', 'a.company_id = b.company_id', 'left');
 		$this->db->where($where);
 		$this->db->limit(1);
 		$Q = $this->db->get();
@@ -272,7 +99,8 @@ class M_admin extends CI_Model  {
     public function grid_all_member($select, $sidx, $sord, $limit, $start, $where="", $like=""){
         $data = "";
         $this->db->select($select);
-        $this->db->from("member");
+        $this->db->from("member a");
+        $this->db->join('department b', 'a.department_id = b.department_id', 'left');
 		if ($where){$this->db->where($where);}
 		if ($like){
 			foreach($like as $key => $value){ 
@@ -448,6 +276,7 @@ class M_admin extends CI_Model  {
         $this->db->join('member b', 'a.member_id = b.member_id', 'left');
         $this->db->join('company c', 'a.company_id = c.company_id', 'left');
         $this->db->join('job d', 'a.job_id = d.job_id', 'left');
+        $this->db->join('department e', 'b.department_id = e.department_id', 'left');
         $this->db->where($where);
         $this->db->limit(1);
         $Q = $this->db->get();

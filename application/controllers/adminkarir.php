@@ -157,7 +157,8 @@ class Adminkarir extends CI_Controller {
 				$data['jml_halaman']		= ceil($data['jml_data']/$data['batas']);
 			} elseif ($data['action']	== 'tambah') {
 				$data['onload']				= 'job_name';
-				$data['ckeditor']			= $this->ckeditor('job_description');
+				$data['ckeditor']			= $this->ckeditor('job_responsible');
+				$data['ckeditor2']			= $this->ckeditor('job_qualifications');
 				$data['job_name']		= ($this->input->post('job_name'))?$this->input->post('job_name'):'';	
 				$data['job_images']		= ($this->input->post('job_images'))?$this->input->post('job_images'):'';
 				$data['job_responsible']		= ($this->input->post('job_responsible'))?$this->input->post('job_responsible'):'';		
@@ -181,7 +182,8 @@ class Adminkarir extends CI_Controller {
 					redirect("adminkarir/job");
 				}
 			} elseif ($data['action']	== 'edit') {
-				$data['ckeditor']			= $this->ckeditor('job_description');
+				$data['ckeditor']			= $this->ckeditor('job_responsible');
+				$data['ckeditor2']			= $this->ckeditor('job_qualifications');
 				$where['job_id'] 		= $filter2;
 				$data['onload']					= 'company_id';
 				$where_job['job_id']	= $filter2;
@@ -226,8 +228,99 @@ class Adminkarir extends CI_Controller {
 			}
 	}
 
+	public function apply($filter1='', $filter2='', $filter3='')
+	{ 
+		if($this->session->userdata('logged_in') == TRUE) {
+			$where_admin['admin_user']		= $this->session->userdata('admin_user');
+			$data['admin']					= $this->ADM->get_admin('*',$where_admin);
+			@date_default_timezone_set('Asia/Jakarta');
+			$data['dashboard_info']			= FALSE;
+            $data['breadcrumb']             = 'Lowongan';
+			$data['content']				= 'admin/content/website/apply';
+			$data['action']					= (empty($filter1))?'view':$filter1;
+			$data['validate']				= array('member_name'=>'NAMA PELAMAR','job_name'=>'LOWONGAN', 'company_name' => 'NAMA PERUSAHAAN');
+			if($data['action'] == 'view') {
+				$data['berdasarkan']		= array('member_name'=>'NAMA PELAMAR','job_name'=>'LOWONGAN', 'company_name' => 'NAMA PERUSAHAAN');
+				$data['cari']				= ($this->input->post('cari'))?$this->input->post('cari'):'apply_id';
+				$data['q']					= ($this->input->post('q'))?$this->input->post('q'):'';
+				$data['halaman']			= (empty($filter2))?1:$filter2;
+				$data['batas']				= 10;
+				$data['page']				= ($data['halaman']-1) * $data['batas'];
+				$like_apply[$data['cari']]	= $data['q'];				
+				$data['jml_data']			= $this->ADM->count_all_apply('', $like_apply);
+				$data['jml_halaman']		= ceil($data['jml_data']/$data['batas']);
+		
+			} elseif ($data['action'] == 'diterima') {
+				$where_edit['apply_id'] =$filter2;					
+				$edit['apply_status'] = 'DITERIMA';
+				$this->ADM->update_apply($where_edit, $edit);
+				$this->session->set_flashdata('success','Telah berhasil di TERIMA!,');
+				redirect("adminkarir/apply");
+			} elseif ($data['action'] == 'ditolak') {
+				$where_edit['apply_id'] =$filter2;					
+				$edit['apply_status'] = 'TIDAK DITERIMA';
+				$this->ADM->update_apply($where_edit, $edit);
+				$this->session->set_flashdata('success','Telah berhasil di TOLAK!,');
+				redirect("adminkarir/apply");
+			} elseif ($data['action'] == 'detail') {
+				$where_apply['apply_id'] =$filter2;	
+				$data['apply']			= $this->ADM->get_apply('*', $where_apply);
+			}
+			$this->load->vars($data);
+			$this->load->view('admin/home');
+		 } else {
+			 redirect("home");		 	
+			}
+	}
 
 
+	public function apply_print($apply_id='')
+	{ 
+		if($this->session->userdata('logged_in') == TRUE) {
+			$where_admin['admin_user']		= $this->session->userdata('admin_user');
+			$data['admin']					= $this->ADM->get_admin('*',$where_admin);
+			$where_apply['apply_id'] =$apply_id;	
+			$data['apply']			= $this->ADM->get_apply('*', $where_apply);
+			@date_default_timezone_set('Asia/Jakarta');
+			$this->load->vars($data);
+			$this->load->view('admin/content/website/apply_print');
+		 } else {
+			 redirect("home");		 	
+			}
+	}
+
+	public function member($filter1='', $filter2='', $filter3='')
+	{ 
+		if($this->session->userdata('logged_in') == TRUE) {
+			$where_admin['admin_user']		= $this->session->userdata('admin_user');
+			$data['admin']					= $this->ADM->get_admin('*',$where_admin);
+			@date_default_timezone_set('Asia/Jakarta');
+			$data['dashboard_info']			= FALSE;
+            $data['breadcrumb']             = 'Lowongan';
+			$data['content']				= 'admin/content/website/member';
+			$data['action']					= (empty($filter1))?'view':$filter1;
+			$data['validate']				= array('member_name'=>'NAMA','departmen_name'=>'JURUNSAN');
+			if($data['action'] == 'view') {
+				$data['berdasarkan']		= array('member_name'=>'NAMA','departmen_name'=>'JURUNSAN');
+				$data['cari']				= ($this->input->post('cari'))?$this->input->post('cari'):'member_id';
+				$data['q']					= ($this->input->post('q'))?$this->input->post('q'):'';
+				$data['halaman']			= (empty($filter2))?1:$filter2;
+				$data['batas']				= 10;
+				$data['page']				= ($data['halaman']-1) * $data['batas'];
+				$like_member[$data['cari']]	= $data['q'];				
+				$data['jml_data']			= $this->ADM->count_all_member('', $like_member);
+				$data['jml_halaman']		= ceil($data['jml_data']/$data['batas']);
+		
+			} elseif ($data['action'] == 'detail') {
+				$where_member['member_id'] =$filter2;	
+				$data['member']			= $this->ADM->get_member('*', $where_member);
+			}
+			$this->load->vars($data);
+			$this->load->view('admin/home');
+		 } else {
+			 redirect("home");		 	
+			}
+	}
 	public function report($filter1='', $filter2='', $filter3='')
 	{ 
 		if($this->session->userdata('logged_in') == TRUE) {

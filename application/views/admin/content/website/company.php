@@ -323,6 +323,14 @@
                                     </tr>  
                                     <tr>
                                         <td width="130">
+                                            <label for="company_field" class="control-label">Bidang <span class="required">*</span></label>
+                                        </td>
+                                        <td>
+                                            <input name="company_field" type="text" id="company_field" required class="form-control input-sm"  value="<?php echo $company_field;?>" size="80" placeholder="Masukan Nama Perusahaan" />
+                                        </td>
+                                    </tr>  
+                                    <tr>
+                                        <td width="130">
                                             <label for="company_description" class="control-label">Deskripsi <span class="required">*</span></label>
                                         </td>
                                         <td>
